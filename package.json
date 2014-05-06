@@ -1,0 +1,30 @@
+{
+  "name": "express-testing-examples",
+  "version": "0.1.0",
+  "description": "Express Testing Examples",
+  "homepage": "https://github.com/wbyoung/express-testing-examples",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report $(if [ \"$TRAVIS\" ]; then echo lcovonly; else echo html; fi) -- && if [ \"$TRAVIS\" ]; then cat ./coverage/lcov.info | ./node_modules/.bin/coveralls; fi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wbyoung/express-testing-examples.git"
+  },
+  "author": "Whitney Young",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.1.1",
+    "hbs": "~2.6.0",
+    "lodash": "~2.4.1",
+    "q": "~1.0.1"
+  },
+  "devDependencies": {
+    "istanbul": "~0.2.7",
+    "coveralls": "~2.10.0",
+    "mocha": "~1.18.2",
+    "chai": "~1.9.1",
+    "sinon-chai": "~2.5.0",
+    "request": "~2.34.0"
+  }
+}
