@@ -42,7 +42,7 @@ describe('routing', function() {
   describe('GET /', function() {
     it('calls index route', function(done) {
       request.get(baseURL + '/', function(err, res, data) {
-        expect(routes.index).to.have.been.calledOnce;
+        expect(routes.index.callCount).to.eql(1);
         expect(routes.index.getCall(0).args[0].params).to.eql({});
         done();
       });
@@ -52,7 +52,7 @@ describe('routing', function() {
   describe('GET /api/people', function() {
     it('calls people.list route', function(done) {
       request.get(baseURL + '/api/people', function(err, res, data) {
-        expect(routes.people.list).to.have.been.calledOnce;
+        expect(routes.people.list.callCount).to.eql(1);
         expect(routes.people.list.getCall(0).args[0].params).to.eql({});
         done();
       });
@@ -64,7 +64,7 @@ describe('routing', function() {
       var params = { firstName: 'Whitney', lastName: 'Young', address: 'Portland' };
       var opts = { url: baseURL + '/api/people', json: params };
       request.post(opts, function(err, res, data) {
-        expect(routes.people.create).to.have.been.calledOnce;
+        expect(routes.people.create.callCount).to.eql(1);
         expect(routes.people.create.getCall(0).args[0].params).to.eql({});
         done();
       });
@@ -74,7 +74,7 @@ describe('routing', function() {
   describe('GET /api/people/:id', function() {
     it('calls people.read route', function(done) {
       request.get(baseURL + '/api/people/1', function(err, res, data) {
-        expect(routes.people.read).to.have.been.calledOnce;
+        expect(routes.people.read.callCount).to.eql(1);
         expect(routes.people.read.getCall(0).args[0].params).to.eql({ id: '1' });
         done();
       });
@@ -86,7 +86,7 @@ describe('routing', function() {
       var params = { firstName: 'Whitney', lastName: 'Young', address: 'Portland' };
       var opts = { url: baseURL + '/api/people/1', json: params };
       request.put(opts, function(err, res, data) {
-        expect(routes.people.create).to.have.been.calledOnce;
+        expect(routes.people.create.callCount).to.eql(1);
         expect(routes.people.create.getCall(0).args[0].params).to.eql({});
         done();
       });
