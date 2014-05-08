@@ -2,7 +2,14 @@
 
 [![Build status][travis-image]][travis-url] [![Code Climate][codeclimate-image]][codeclimate-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependencies][david-image]][david-url]
 
-This repository demonstrates some strategies for testing Express apps.
+> This repository is for learning purposes. It may intentionally contain bugs or
+fail to function properly. The code may be purposefully difficult to read,
+contain syntax errors, or only be a partial solution. You should not base code
+off of this and absolutely should not use it in production.
+
+This project attempts to isolate components of an Express app and test them
+individually. It separates the route definitions from their implementations and
+targets each type with individualized tests.
 
 
 ## License
