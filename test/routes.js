@@ -82,12 +82,12 @@ describe('routing', function() {
   });
 
   describe('PUT /api/people/:id', function() {
-    it('calls people.create route', function(done) {
+    it('calls people.update route', function(done) {
       var params = { firstName: 'Whitney', lastName: 'Young', address: 'Portland' };
       var opts = { url: baseURL + '/api/people/1', json: params };
       request.put(opts, function(err, res, data) {
-        expect(routes.people.create.callCount).to.eql(1);
-        expect(routes.people.create.getCall(0).args[0].params).to.eql({});
+        expect(routes.people.update.callCount).to.eql(1);
+        expect(routes.people.update.getCall(0).args[0].params).to.eql({ id: "1" });
         done();
       });
     });
@@ -95,7 +95,7 @@ describe('routing', function() {
     it.skip('produces error for non-numeric values', function(done) {
       request.put(baseURL + '/api/people/whitney', function(err, res, data) {
         expect(res.statusCode).to.equal(404);
-        expect(routes.people.create).to.not.have.been.called;
+        expect(routes.people.update).to.not.have.been.called;
         done();
       });
     });
