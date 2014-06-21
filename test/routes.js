@@ -32,12 +32,12 @@ var spies = [
 
 describe('routing', function() {
   // install spies before creating the app and starting the server
-  before(function() { spies.forEach(spy); });
-  after(function() { spies.forEach(restore); });
+  beforeEach(function() { spies.forEach(spy); });
+  afterEach(function() { spies.forEach(restore); });
 
   // create the app and start the server
-  before(function(done) { server = app.create().listen(port, done); });
-  after(function(done) { server.close(done); });
+  beforeEach(function(done) { server = app.create().listen(port, done); });
+  afterEach(function(done) { server.close(done); });
 
   describe('GET /', function() {
     it('calls index route', function(done) {
